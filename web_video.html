@@ -38,9 +38,19 @@ http://www.templatemo.com/tm-501-neaty
                                 <li class="tm-nav-item">
                                     <a href="#web" class="tm-nav-item-link">Web Programming</a>
                                 </li>
-                                <li class="tm-nav-item">
+									<ul class="tm-main-nav-ul">
+										<li class="explist" data-val="1" data-url="https://www.youtube.com/embed/qxalPvjiw98"><a href="#" class="tm-nav-item-link">Experiment - 1</a></li>
+										<li class="explist" data-val="2" data-url="https://www.youtube.com/embed/FgQ5AcifQWY"><a href="#" class="tm-nav-item-link">Experiment - 2</a></li>
+										<li class="explist" data-val="3" data-url="https://www.youtube.com/embed/tSkcoiQLGzg"><a href="#" class="tm-nav-item-link">Experiment - 3</a></li>
+										<li class="explist" data-val="4" data-url="https://www.youtube.com/embed/qxalPvjiw98"><a href="#" class="tm-nav-item-link">Experiment - 4</a></li>
+										<li class="explist" data-val="5" data-url="https://www.youtube.com/embed/qxalPvjiw98"><a href="#" class="tm-nav-item-link">Experiment - 5</a></li>
+										<li class="explist" data-val="6" data-url="https://www.youtube.com/embed/RB_cW2g9e9Q"><a href="#" class="tm-nav-item-link">Experiment - 6</a></li>
+										<li class="explist" data-val="7" data-url="https://www.youtube.com/embed/3yFpusE3fuA"><a href="#" class="tm-nav-item-link">Experiment - 7</a></li>
+										<li class="explist" data-val="8" data-url="https://www.youtube.com/embed/3Go3B57-LGQ"><a href="#" class="tm-nav-item-link">Experiment - 8</a></li>
+									</ul>
+                                <!--li class="tm-nav-item">
                                     <a href="#rpa" class="tm-nav-item-link">Robotic Process Automation - RPA</a>
-                                </li>
+                                </li-->
                                
                             </ul>
                         </nav>                                         
@@ -66,19 +76,19 @@ http://www.templatemo.com/tm-501-neaty
 								</div>
 							</section>
                             <!-- Second Gallery section -->     
-                            <section id="web" class="tm-section">
+                            <!--section id="web" class="tm-section">
                                 <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Web Termworks</h2></header>
                                 <div class="tm-gallery-container tm-gallery-2">
                                     <div class="tm-img-container tm-img-container-2">
 										<div class="" id="">
 										<h3>Termwork<br/>Example - 1</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/qxalPvjiw98" title="YouTube video player" frameborder="0" allowfullscreen></iframe> <!--a href="img/web.png"><img src="img/web.png" alt="Image" class="img-fluid tm-img-tn"></a-->    
+										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/qxalPvjiw98" title="YouTube video player" frameborder="0" allowfullscreen></iframe> <!--a href="img/web.png"><img src="img/web.png" alt="Image" class="img-fluid tm-img-tn"></a>    
 										</div> 
 									</div>
 									 <div class="tm-img-container tm-img-container-2">
 										<div class="" id="">
 										<h3>Termwork<br/>Example - 2 | Part:1</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/kk-i9bYXtvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><!--a href="img/web.png"><img src="img/web.png" alt="Image" class="img-fluid tm-img-tn"></a-->    
+										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/kk-i9bYXtvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><!--a href="img/web.png"><img src="img/web.png" alt="Image" class="img-fluid tm-img-tn"></a>    
 										</div> 
 									</div>
 									<div class="tm-img-container tm-img-container-2">
@@ -110,9 +120,9 @@ http://www.templatemo.com/tm-501-neaty
                                     
                                     <!--div class="tm-img-container tm-img-container-2">
                                         <a href="img/neaty-10.jpg"><img src="img/neaty-10.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div-->                                    
+                                    </div>                                    
                                 </div>
-                            </section>
+                            </section-->
 
     
                             <footer>
@@ -163,7 +173,17 @@ http://www.templatemo.com/tm-501-neaty
                   // other options
                 }); 
 
-                $('.tm-current-year').text(new Date().getFullYear());                
+                $('.tm-current-year').text(new Date().getFullYear());
+
+				$(document).on('click','.explist',function(e){
+					//e.preventD
+					var current_id = $(this).data("val");
+					
+					var header = '<h3>Termwork | Example - '+current_id+'</h3>';
+					var url = $(this).data("url");
+					//alert(url);
+					$('#play_area').html(header+'<iframe width="800" height="440" src="'+url+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+				});                
             });
         </script>             
 </body>
