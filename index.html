@@ -1,275 +1,473 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vidyadheesh Pandurangi — languages, learning systems, and Indian logic</title>
+<meta name="description" content="Vidyadheesh Pandurangi — Assistant Professor of Computer
+Science and Engineering at KLS Gogte Institute of Technology. Creator of Vāk, a Sanskrit-native
+programming language whose type system is Pāṇini's kāraka grammar.">
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+<style>
+/* ------------------------------------------------------------------ tokens
+   मसी — manuscript ink, paper, and haritāla: the orpiment yellow Indian
+   manuscripts used for headings.  The same palette the Vāk pages use, so the
+   whole body of work reads as one thing. */
+:root {
+  --ink:#16223f; --ink-soft:#4a5570; --ink-faint:#7c8499; --paper:#f7f6f1;
+  --paper-2:#eeece4; --rule:#cfcdc2; --gold:#a8781f; --gold-lit:#f0e4c4;
+  --indigo:#37508c; --crimson:#9a3324;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink:#e6e3d9; --ink-soft:#a9aec0; --ink-faint:#767d92; --paper:#10141f;
+    --paper-2:#171c2b; --rule:#2c3346; --gold:#d8a94a; --gold-lit:#2a2415;
+    --indigo:#8aa2df; --crimson:#e0806e;
+  }
+}
+:root[data-theme="light"] {
+  --ink:#16223f; --ink-soft:#4a5570; --ink-faint:#7c8499; --paper:#f7f6f1;
+  --paper-2:#eeece4; --rule:#cfcdc2; --gold:#a8781f; --gold-lit:#f0e4c4;
+  --indigo:#37508c; --crimson:#9a3324;
+}
+:root[data-theme="dark"] {
+  --ink:#e6e3d9; --ink-soft:#a9aec0; --ink-faint:#767d92; --paper:#10141f;
+  --paper-2:#171c2b; --rule:#2c3346; --gold:#d8a94a; --gold-lit:#2a2415;
+  --indigo:#8aa2df; --crimson:#e0806e;
+}
+html {
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,
+          "Nirmala UI","Noto Serif Devanagari",serif;
+  --sans:"Segoe UI",-apple-system,"Helvetica Neue",Arial,"Nirmala UI",
+         "Noto Sans Devanagari",sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono","Nirmala UI",
+         "Noto Sans Devanagari",monospace;
+  box-sizing:border-box; -webkit-text-size-adjust:100%; scroll-behavior:smooth;
+}
+*,*::before,*::after { box-sizing:inherit; }
+body {
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.66;
+}
+.wrap { max-width:58rem; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+p { max-width:38em; }
+img { max-width:100%; height:auto; }
 
-    <title>Vidyadheesh Pandurangi</title>
-<!--
-Neaty HTML Template
-http://www.templatemo.com/tm-501-neaty
--->
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/magnific-popup.css">                                <!-- Magnific pop up style, http://dimsemenov.com/plugins/magnific-popup/ -->
-    <link rel="stylesheet" href="css/templatemo-style.css">                                   <!-- Templatemo style -->
-     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-          <![endif]-->
-		  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"-->
-<!--script src="https://cdn.tailwindcss.com"></script-->
+/* --------------------------------------------------------------- top bar */
+.top {
+  display:flex; align-items:baseline; gap:.9rem 1.3rem; flex-wrap:wrap;
+  padding:1.1rem 0 .8rem; border-bottom:1px solid var(--rule);
+  position:sticky; top:0; background:var(--paper); z-index:10;
+}
+.top .who { font-size:1.05rem; letter-spacing:-.01em; }
+.top nav { margin-left:auto; display:flex; gap:1.1rem; flex-wrap:wrap;
+           font-family:var(--sans); font-size:.8rem; }
+.top nav a { color:var(--ink-soft); text-decoration:none; }
+.top nav a:hover, .top nav a:focus-visible { color:var(--gold); }
+.top button {
+  font:inherit; font-family:var(--sans); font-size:.71rem; cursor:pointer;
+  color:var(--ink-faint); background:transparent; border:1px solid var(--rule);
+  border-radius:2px; padding:.22rem .5rem;
+}
+.top button:hover, .top button:focus-visible { border-color:var(--gold); color:var(--gold); }
+
+/* ------------------------------------------------------------------ hero */
+.hero { padding:clamp(2.5rem,7vw,5rem) 0 3rem; display:grid; gap:2.5rem;
+        grid-template-columns:1fr 13rem; align-items:start; }
+.hero .eyebrow {
+  margin:0 0 1rem; font-family:var(--sans); font-size:.73rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
+}
+.hero h1 {
+  margin:0 0 1.1rem; font-weight:400; line-height:1.14; text-wrap:balance;
+  font-size:clamp(1.9rem,1.2rem + 3vw,3.1rem); letter-spacing:-.015em;
+}
+.hero .stand { font-size:1.08rem; color:var(--ink-soft); }
+.hero .portrait { border:1px solid var(--rule); border-radius:2px; }
+.hero .links { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.6rem; }
+.hero .links a {
+  font-family:var(--sans); font-size:.82rem; text-decoration:none;
+  border:1px solid var(--rule); border-radius:2px; padding:.45rem .9rem;
+  color:var(--ink-soft);
+}
+.hero .links a:hover, .hero .links a:focus-visible {
+  border-color:var(--gold); color:var(--gold);
+}
+
+/* ------------------------------------------------------------- epigraph */
+.epigraph {
+  border-left:2px solid var(--gold); padding:.2rem 0 .2rem 1.2rem;
+  margin:0 0 2.5rem;
+}
+.epigraph .verse { font-size:1.05rem; line-height:1.75; margin:.4rem 0 .2rem;
+                   color:var(--ink); max-width:34em; }
+.epigraph p { font-size:.9rem; color:var(--ink-soft); margin:.2rem 0 .9rem; }
+.epigraph cite { font-family:var(--sans); font-size:.74rem; color:var(--ink-faint);
+                 font-style:normal; letter-spacing:.03em; }
+
+/* ------------------------------------------------------------- sections
+   Devanagari hangs its letters from a शिरोरेखा — a head-line. So does every
+   heading on this site, and on the Vāk pages. */
+section { padding:3.2rem 0 0; scroll-margin-top:4.5rem; }
+.head { border-top:1.5px solid var(--ink); padding-top:.5rem; margin-bottom:1.3rem;
+        display:flex; align-items:baseline; gap:.85rem; flex-wrap:wrap; }
+.head h2 { margin:0; font-weight:500; font-size:clamp(1.35rem,1.1rem + 1.2vw,1.85rem);
+           line-height:1.2; }
+.head .en { font-family:var(--sans); font-size:.77rem; color:var(--ink-soft); }
+.lede { font-size:1.08rem; color:var(--gold); max-width:32em; }
+
+/* --------------------------------------------------------------- flagship */
+.flagship { border:1px solid var(--rule); border-radius:3px; overflow:hidden;
+            margin:1.5rem 0; }
+.flagship .banner { background:var(--paper-2); padding:1.4rem clamp(1rem,3vw,1.6rem);
+                    border-bottom:1px solid var(--rule); }
+.flagship .banner .name { font-size:2rem; line-height:1; margin:0 0 .5rem; }
+.flagship .banner .name span { font-family:var(--sans); font-size:.8rem;
+                               color:var(--ink-faint); letter-spacing:.1em;
+                               text-transform:uppercase; margin-left:.6rem;
+                               vertical-align:.35rem; }
+.flagship .banner p { margin:0; color:var(--ink-soft); font-size:.98rem; }
+.flagship pre { margin:0; padding:1.1rem clamp(1rem,3vw,1.6rem); overflow-x:auto;
+                border-bottom:1px solid var(--rule); }
+.flagship code { font-family:var(--mono); font-size:.83rem; line-height:1.72;
+                 white-space:pre; }
+.flagship .doors { display:flex; gap:.6rem; flex-wrap:wrap;
+                   padding:1rem clamp(1rem,3vw,1.6rem); }
+.flagship .doors a {
+  font-family:var(--sans); font-size:.82rem; text-decoration:none;
+  border:1px solid var(--rule); border-radius:2px; padding:.45rem .9rem;
+  color:var(--ink-soft);
+}
+.flagship .doors a.first { border-color:var(--gold); color:var(--gold);
+                           background:var(--gold-lit); font-weight:600; }
+.flagship .doors a:hover, .flagship .doors a:focus-visible {
+  border-color:var(--gold); color:var(--gold);
+}
+.k { color:var(--gold); font-weight:600; }
+.t { color:var(--indigo); font-weight:600; }
+.ka { color:var(--crimson); font-weight:600; border-bottom:1.5px solid currentColor; }
+.s { color:var(--indigo); }
+.c { color:var(--ink-faint); font-style:italic; }
+
+/* ------------------------------------------------------------------ lists */
+ul.work { list-style:none; margin:1.2rem 0; padding:0; display:flex;
+          flex-direction:column; gap:0; }
+ul.work li { padding:.85rem 0; border-bottom:1px solid var(--rule); max-width:none; }
+ul.work li:first-child { border-top:1px solid var(--rule); }
+ul.work .title { font-weight:600; }
+ul.work .title a { color:var(--ink); text-decoration:none;
+                   border-bottom:1px solid var(--rule); }
+ul.work .title a:hover, ul.work .title a:focus-visible {
+  color:var(--gold); border-bottom-color:var(--gold);
+}
+ul.work .where { display:block; font-family:var(--sans); font-size:.8rem;
+                 color:var(--ink-faint); margin-top:.2rem; }
+.more { font-family:var(--sans); font-size:.83rem; margin-top:1rem; }
+
+.cards { display:grid; gap:1rem; margin:1.3rem 0;
+         grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); }
+.card { border:1px solid var(--rule); border-radius:3px; padding:1rem 1.1rem; }
+.card h3 { margin:0 0 .3rem; font-size:1.02rem; font-weight:600; }
+.card p { margin:0; font-size:.89rem; color:var(--ink-soft); max-width:none; }
+.card .tag { display:inline-block; font-family:var(--sans); font-size:.68rem;
+             letter-spacing:.08em; text-transform:uppercase; color:var(--gold);
+             margin-bottom:.4rem; }
+.card a { color:var(--gold); }
+
+/* ---------------------------------------------------------------- contact */
+.contact { display:grid; gap:2rem; grid-template-columns:1fr 1fr; margin-top:1.2rem; }
+.contact address { font-style:normal; color:var(--ink-soft); font-size:.95rem; }
+.contact .mail { display:block; margin:.35rem 0; font-family:var(--mono);
+                 font-size:.86rem; }
+
+footer { border-top:1.5px solid var(--ink); margin-top:4.5rem; padding:1.2rem 0 4rem;
+         font-family:var(--sans); font-size:.79rem; color:var(--ink-faint); }
+footer p { margin:.3rem 0; max-width:none; }
+a { color:var(--gold); text-underline-offset:.18em; }
+
+@media (max-width:46rem) {
+  .hero { grid-template-columns:1fr; gap:1.6rem; }
+  .hero .portrait-wrap { max-width:11rem; }
+  .contact { grid-template-columns:1fr; }
+  .top { position:static; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  * { transition:none !important; animation:none !important; }
+}
+</style>
 </head>
-    <body>        
-        <div class="container">
-            <div class="row">
-                <div class="tm-left-right-container">
-                    <!-- Left column: logo and menu -->
-                    <div class="tm-blue-bg tm-left-column">                        
-                        <div class="tm-logo-div text-xs-center">
-                            <img src="img/logo.png" alt="Logo">
-                            <h1 class="tm-site-name">Vidyadheesh Pandurangi</h1>
-                        </div>
-                        <nav class="tm-main-nav">
-                            <ul class="tm-main-nav-ul">
-                                <li class="tm-nav-item">
-                                    <a href="#welcome" class="tm-nav-item-link">Welcome</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#about" class="tm-nav-item-link">About Me</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#galleryone" class="tm-nav-item-link">Publications & Projects</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#teaching" class="tm-nav-item-link">Teaching</a>
-                                </li>
-                                <!--li class="tm-nav-item">
-                                    <a href="#thirdgallery" class="tm-nav-item-link">Other Interests</a>
-                                </li-->
-                                <li class="tm-nav-item">
-                                    <a href="#contact" class="tm-nav-item-link">Contact</a>
-                                </li>
-                            </ul>
-                        </nav>                                         
-                    </div> <!-- Left column: logo and menu -->
-                    
-                    <!-- Right column: content -->
-                    <div class="tm-right-column">
-                        <figure>
-                            <img src="img/fancy_img.jpg" alt="Header image" class="img-fluid">    
-                        </figure>
+<body>
+<div class="wrap">
 
-                        <div class="tm-content-div">
-                            <!-- Welcome section -->
-                            <section id="welcome" class="tm-section">
-                                <header>
-                                    <h2 class="tm-blue-text tm-welcome-title tm-margin-b-45">Welcome </h2>
-                                </header>
-									*<h4>कर्मण्येवाधिकारस्ते मा फलेषु कदाचन । मा कर्मफलहेतुर्भुर्मा ते संगोऽस्त्वकर्मणि ॥ </h4>
-									<p>You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself to be the cause of the results of your activities, and never be attached to not doing your duty. - Bhagavad Gita, Chapter II, Verse 47 </p>
-									*<h4>न हि ज्ञानेन सदृशं पवित्रमिह विद्यते । </h4>
-									<p>There is nothing as sublime and pure as transcendental  knowledge  and one who has achieved this enjoys the self within himself in due course of time. </p>
-							</section>
-                            <!-- About section -->
-                            <section id="about" class="tm-section">
-                                <div class="row">                                                                
-                                    <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 push-lg-4 push-md-5">
-                                        <header>
-                                            <h2 class="tm-blue-text tm-section-title tm-margin-b-45">About me</h2>
-                                        </header>
-                                        <p>Vidyadheesh Pandrangi, a MTech graduate from MIT manipal in the field of software Engineering and holds the bachelor Degree from Visweswaraya Technological University. He worked as a Junior Software Engineer in Leviosa Consulting Pvt Ltd on ERP development, deploying and maintanance. </p>
-                                        <p>A learner who loves to explore and gain knowledge of new era technologies.
-Very much enthusiastic about Web development /App development , ML , NLP, RPA . 
-I do have a bit of grasp towards Indian philosophy , Dwaita epistemology , Tarka.</p>
-                                        <p></p>
-                                        <a href="readmore.html" class="tm-button tm-button-wide">Read More</a>  
-                                    </div>
+<div class="top">
+  <span class="who">Vidyadheesh Pandurangi</span>
+  <nav>
+    <a href="#vak">वाक् · Vāk</a>
+    <a href="#research">Research</a>
+    <a href="#built">Built</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button id="theme" type="button">theme</button>
+</div>
 
-                                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 pull-lg-8 pull-md-7 tm-about-img-container">
-                                        <img src="img/vjp.JPG" alt="Image" class="img-fluid">    
-                                    </div>  
-                                </div>                            
-                            </section>  
+<header class="hero">
+  <div>
+    <p class="eyebrow">Assistant Professor · Computer Science &amp; Engineering</p>
+    <h1>I build languages and learning systems, and I read the Indian logicians
+    who worked on the same problems first.</h1>
+    <p class="stand">I teach web programming and robotic process automation at
+    KLS Gogte Institute of Technology, publish on applied machine learning, and
+    spend the rest of my time on <a href="#vak">Vāk</a> — a programming language
+    whose type system is Pāṇini's grammar.</p>
+    <div class="links">
+      <a href="#vak">वाक् · the language</a>
+      <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="portrait-wrap">
+    <img src="img/vjp.JPG" alt="Vidyadheesh Pandurangi" class="portrait">
+  </div>
+</header>
 
-                            <!-- Gallery One section -->     
-                            <section id="galleryone" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Technical Publications</h2></header>
-                                <div class="">
-                                    <ul class="">
-                                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ugHoL5oAAAAJ&citation_for_view=ugHoL5oAAAAJ:9yKSN-GCB0IC" target="_blank"><strong>Detection & Classification of Electronic Nose System </strong></a>- 2021 5th International Conference on Intelligent Computing and Control Systems (ICICCS)</li>
-										<li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ugHoL5oAAAAJ&citation_for_view=ugHoL5oAAAAJ:u5HHmVD_uO8C" target="_blank"><strong>Building Efficient Fruit Detection Model</strong></a> -2019 1st International Conference on Advances in Information Technology (ICAIT)</li> 
-                                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ugHoL5oAAAAJ&citation_for_view=ugHoL5oAAAAJ:d1gkVwhDpl0C" target="_blank"><strong>Application of Machine Learning in Classification and Prediction of Breast Cancer</strong></a> - Asian Journal For Convergence In Technology (AJCT)</li>
-                                        <li><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ugHoL5oAAAAJ&citation_for_view=ugHoL5oAAAAJ:u-x6o8ySG0sC" target="_blank"><strong>Measuring the effectiveness of Government Schemes using Machine learning algorithms </strong></a>- 2018 4th International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT)</li>
-                                    </ul>
-                                    <p> For details visit - <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
-                                                                    
-                                </div>
-								<header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Projects :</h2></header>
-                                <div class="">
-                                    <ul class="">
-                                        <li><strong><a href="TCE-demo/index.html">TCE-Demo Webpage</a></strong></li> 
-										</ul>
-                                    <ul class="">
-                                        <li><strong>Krishnamath Seva Booking Project</strong> - RPD Belagavi</li> 
-										<li><strong>PSVPT Project</strong> - Shivamogga</li> 
-                                        <li><strong>Resolution Manager</strong> KLS Gogte Institute of Technology, Belagavi, Karnataka, India </li>
-										<li><strong>Lab Allocator</strong> KLS Gogte Institute of Technology, Belagavi, Karnataka, India </li>										
-                                    </ul>
-									<hr/>
-									<ul class="">
-                                        <li><strong>Auto Attendance sheet Generation.</strong> KLS Gogte Institute of Technology, Belagavi, Karnataka, India </li> 
-                                        <li><strong>LinkedIn Profile Data Collection</strong> KLS Gogte Institute of Technology, Belagavi, Karnataka, India</li> 
-                                    </ul>
-                                    <p> For details visit - <a href="https://github.com/vidyadheeshp/" target="_blank">Git Repo</a></p>
-                                                                    
-                                </div>
-                            </section>
+<div class="epigraph">
+  <p class="verse">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>
+  मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥</p>
+  <p>You have a right to perform your prescribed duty, but not to the fruits of
+  action. Never consider yourself the cause of the results of your activities,
+  and never be attached to not doing your duty.</p>
+  <cite>Bhagavad Gītā II.47</cite>
 
-                            <!-- Second Gallery section -->     
-                            <section id="teaching" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Teaching</h2></header>
-                                <div class="tm-gallery-container tm-gallery-2">
-                                    <div class="tm-img-container tm-img-container-2">
-										Web Programming
-                                        <a href="img/web.png"><img src="img/web.png" alt="Image" class="img-fluid tm-img-tn"></a>    
-										 Design & Development
-									</div>
-									<div class="tm-img-container tm-img-container-2">
-										Robotic Process Automation
-                                        <a href="img/uipath.png"><img src="img/uipath.png" alt="Image" class="img-fluid tm-img-tn"></a>    
-										Academic Alliance-Educator 
-									</div>
-									<!--div class="tm-img-container tm-img-container-2">
-										Operating System
-                                        <a href="img/uipath.png"><img src="img/uipath.png" alt="Image" class="img-fluid tm-img-tn"></a>    
-										Academic Alliance-Educator 
-									</div-->
-                                    
-                                    <!--div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-10.jpg"><img src="img/neaty-10.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div-->                                    
-                                </div>
-								<div class="">
-									<h4 class="tm-blue-text tm-section-title">Video Series</h4>
-									<a href="web_video.html">Web Programming Exercises</a>&nbsp;&nbsp;
-									<a href="rpa_video.html">Robotic Process Automation - RPA</a>
-								</div>
-                            </section>
+  <p class="verse">न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।</p>
+  <p>There is nothing in this world as purifying as knowledge.</p>
+  <cite>Bhagavad Gītā IV.38</cite>
+</div>
 
-                            <!-- Third Gallery section -->     
-                            <!--section id="thirdgallery" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Third Gallery</h2></header>
-                                <div class="tm-gallery-container tm-gallery-3">
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-11.jpg"><img src="img/neaty-11.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-12.jpg"><img src="img/neaty-12.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-13.jpg"><img src="img/neaty-13.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-14.jpg"><img src="img/neaty-14.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>                                    
-                                </div>
-                            </section-->
+<!-- ======================================================= the flagship -->
+<section id="vak">
+  <div class="head">
+    <h2>वाक्</h2><span class="en">a Sanskrit-native programming language</span>
+  </div>
+  <p class="lede">Sanskrit does not decide meaning by word order. It marks the
+  role each participant plays in an action — and Vāk makes those roles a type
+  system.</p>
+  <p>Pāṇini analysed a sentence by <b>kāraka</b>: who acts, what is acted upon,
+  by what means, from what source. Vāk lets a function's parameters declare those
+  same roles, and then checks the grammar of your function the way Pāṇini checked
+  the grammar of a sentence. Because the roles are marked, the arguments carry
+  their own labels and the order stops mattering — exactly the freedom that case
+  endings give a Sanskrit sentence.</p>
 
-                            <!-- Contact Us section -->
-                            <section id="contact" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Contact Me</h2></header>
+  <div class="flagship">
+    <div class="banner">
+      <p class="name">वाक् <span>Vāk</span></p>
+      <p>Every stage of its front end — lexer, parser, analyser, compiler and
+      virtual machine — is written in Vāk itself.</p>
+    </div>
+<pre><code><span class="c"># संग्रहः is the अपादानम् — what we draw *from*.</span>
+<span class="c"># परीक्षा is the करणम् — the means *by which*.</span>
+<span class="k">कार्यम्</span> छानय(<span class="ka">अपादानम्</span> <span class="t">सूची</span> संग्रहः, <span class="ka">करणम्</span> <span class="t">कार्यम्</span> परीक्षा) : <span class="t">सूची</span> {
+    <span class="t">सूची</span> फलम् = []।
+    <span class="k">प्रत्येकम्</span> (अङ्गम् <span class="k">अन्तः</span> संग्रहः) {
+        <span class="k">यदि</span> (परीक्षा(अङ्गम्)) { योजय(फलम्, अङ्गम्)। }
+    }
+    <span class="k">प्रत्यागच्छ</span> फलम्।
+}
 
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <form action="mailme.php" method="post" class="contact-form">
-                                            <div class="form-group">
-                                                <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email"  required/>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea id="contact_message" name="contact_message" class="form-control" rows="9" placeholder="Message" required></textarea>
-                                            </div>                                            
-                                            <button type="submit" class="float-right tm-button">Send</button>
-                                        </form>    
-                                    </div>
-                                    
-                                    <div class="col-lg-6 tm-contact-right">
-                                        <span><strong>
-                                         Prof. Vidyadheesh Pandurangi
-                                       </strong></span>
-                                        <address>
-											Assistant Professor,<br/>
-                                            Department of Computer Science and Engineering,<br>
-                                            KLS's Gogte Institute of Technology<br>
-                                           Udyambag Belagavi 590008
-                                        </address>
-										Contact me at:<br/>
-										<em>vjpandurangi@git.edu</em>
-										<em>vidyadheeshp@gmail.com</em>
-                                    </div>
-                                </div>
-                                
-                            </section>
-                            <footer>
-                                <p class="tm-copyright-p">Copyright &copy; <span class="tm-current-year">2021</span>
-                                
-                                | Designed by <a href="#" target="_parent">vidyadheesh</a></p>
-                            </footer>
-                        </div>  
-                        
-                    </div> <!-- Right column: content -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-                
-        <!-- load JS files -->
-        <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/jquery.magnific-popup.min.js"></script>     <!-- Magnific pop-up (http://dimsemenov.com/plugins/magnific-popup/) -->
-        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-        <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script>     
-       
-            $(document).ready(function(){
+<span class="c"># तीनों एक ही आह्वान — the order is free because the roles are marked.</span>
+<span class="k">मुद्रय</span> छानय(अङ्काः, समः)।
+<span class="k">मुद्रय</span> छानय(<span class="ka">अपादानम्</span>: अङ्काः, <span class="ka">करणम्</span>: समः)।
+<span class="k">मुद्रय</span> छानय(<span class="ka">करणम्</span>: समः, <span class="ka">अपादानम्</span>: अङ्काः)।</code></pre>
+    <div class="doors">
+      <a class="first" href="vak/playground.html">Run it in your browser →</a>
+      <a href="vak/">About the language</a>
+      <a href="vak/manual.html">The manual</a>
+      <a href="https://github.com/vidyadheeshp/vak" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
 
-                // Single page nav
-                $('.tm-main-nav').singlePageNav({
-                    'currentClass' : "active",
-                    offset : 20
-                });
+  <p>A Vāk program can be executed by five different engines — a tree-walking
+  interpreter, a bytecode virtual machine, that machine written in Vāk, a machine
+  in C, and the whole self-hosted toolchain compiled to a native executable. All
+  five are held to byte-identical output on every example, which is what keeps the
+  claim honest. The playground above is that same toolchain compiled to
+  WebAssembly: it lexes, parses, analyses, compiles and runs Vāk inside the
+  browser, with no server involved.</p>
+</section>
 
-                // Magnific pop up
-                $('.tm-gallery-1').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+<!-- ========================================================== research -->
+<section id="research">
+  <div class="head">
+    <h2>संशोधनम्</h2><span class="en">published research</span>
+  </div>
+  <p>Applied machine learning — sensing, detection, and classification problems,
+  and the question of how well a model's accuracy survives contact with the real
+  data it was meant for.</p>
+  <ul class="work">
+    <li>
+      <span class="title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ugHoL5oAAAAJ&amp;citation_for_view=ugHoL5oAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">Detection &amp; Classification of Electronic Nose System</a></span>
+      <span class="where">2021 · 5th International Conference on Intelligent Computing and Control Systems (ICICCS)</span>
+    </li>
+    <li>
+      <span class="title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ugHoL5oAAAAJ&amp;citation_for_view=ugHoL5oAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Building Efficient Fruit Detection Model</a></span>
+      <span class="where">2019 · 1st International Conference on Advances in Information Technology (ICAIT)</span>
+    </li>
+    <li>
+      <span class="title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ugHoL5oAAAAJ&amp;citation_for_view=ugHoL5oAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener">Application of Machine Learning in Classification and Prediction of Breast Cancer</a></span>
+      <span class="where">Asian Journal for Convergence in Technology (AJCT)</span>
+    </li>
+    <li>
+      <span class="title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ugHoL5oAAAAJ&amp;citation_for_view=ugHoL5oAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">Measuring the Effectiveness of Government Schemes using Machine Learning Algorithms</a></span>
+      <span class="where">2018 · 4th International Conference on Applied and Theoretical Computing and Communication Technology (iCATccT)</span>
+    </li>
+  </ul>
+  <p class="more">Full list and citations on
+  <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+</section>
 
-                $('.tm-gallery-2').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+<!-- ============================================================= built -->
+<section id="built">
+  <div class="head">
+    <h2>निर्मितानि</h2><span class="en">systems built and deployed</span>
+  </div>
+  <p>Software that went into use — institutional tools at Gogte Institute of
+  Technology, and booking and management systems built for organisations in
+  Karnataka.</p>
+  <div class="cards">
+    <div class="card">
+      <span class="tag">Institutional</span>
+      <h3>Resolution Manager</h3>
+      <p>KLS Gogte Institute of Technology, Belagavi.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Institutional</span>
+      <h3>Lab Allocator</h3>
+      <p>KLS Gogte Institute of Technology, Belagavi.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Automation · RPA</span>
+      <h3>Auto Attendance Sheet Generation</h3>
+      <p>KLS Gogte Institute of Technology, Belagavi.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Automation · RPA</span>
+      <h3>LinkedIn Profile Data Collection</h3>
+      <p>KLS Gogte Institute of Technology, Belagavi.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Deployed</span>
+      <h3>Krishnamath Seva Booking</h3>
+      <p>RPD Belagavi.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Deployed</span>
+      <h3>PSVPT Project</h3>
+      <p>Shivamogga.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Teaching material</span>
+      <h3><a href="TCE-demo/index.html">TCE-Demo Webpage</a></h3>
+      <p>A worked demonstration page built for classroom use.</p>
+    </div>
+  </div>
+  <p class="more">Repositories on
+  <a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a>.</p>
+</section>
 
-                $('.tm-gallery-3').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+<!-- ========================================================== teaching -->
+<section id="teaching">
+  <div class="head">
+    <h2>अध्यापनम्</h2><span class="en">teaching</span>
+  </div>
+  <p>Department of Computer Science and Engineering, KLS Gogte Institute of
+  Technology. Both courses are backed by recorded exercise series, so students
+  can work through the material at their own pace.</p>
+  <div class="cards">
+    <div class="card">
+      <span class="tag">Course</span>
+      <h3>Web Programming</h3>
+      <p>Design and development. <a href="web_video.html">Exercise video series →</a></p>
+    </div>
+    <div class="card">
+      <span class="tag">Course · UiPath Academic Alliance</span>
+      <h3>Robotic Process Automation</h3>
+      <p>Certified Academic Alliance educator.
+      <a href="rpa_video.html">RPA video series →</a></p>
+    </div>
+  </div>
+</section>
 
-                $('.tm-current-year').text(new Date().getFullYear());                
-            });
-        </script>             
+<!-- ============================================================= about -->
+<section id="about">
+  <div class="head">
+    <h2>परिचयः</h2><span class="en">about</span>
+  </div>
+  <p>I hold an MTech in Software Engineering from MIT Manipal and a bachelor's
+  degree from Visvesvaraya Technological University. Before teaching, I worked as
+  a Junior Software Engineer at Leviosa Consulting Pvt Ltd on ERP development,
+  deployment and maintenance.</p>
+  <p>My technical interests run through web and application development, machine
+  learning, natural language processing, and robotic process automation. Alongside
+  them I read Indian philosophy — particularly Dvaita epistemology and
+  <i>tarka</i>, the classical logic tradition.</p>
+  <p>Those two halves are less separate than they look. Pāṇini's Aṣṭādhyāyī is a
+  formal grammar with rule ordering and metarules, written twenty-five centuries
+  before anyone spoke of parsers; the <i>tarka</i> literature is a theory of valid
+  inference. <a href="#vak">Vāk</a> is what happens when I take that seriously
+  enough to compile it.</p>
+  <p class="more"><a href="readmore.html">More about me →</a></p>
+</section>
+
+<!-- =========================================================== contact -->
+<section id="contact">
+  <div class="head">
+    <h2>सम्पर्कः</h2><span class="en">contact</span>
+  </div>
+  <div class="contact">
+    <div>
+      <p>The quickest way to reach me is email — for research collaboration,
+      student projects, or anything about Vāk.</p>
+      <a class="mail" href="mailto:vjpandurangi@git.edu">vjpandurangi@git.edu</a>
+      <a class="mail" href="mailto:vidyadheeshp@gmail.com">vidyadheeshp@gmail.com</a>
+    </div>
+    <div>
+      <p><strong>Prof. Vidyadheesh Pandurangi</strong></p>
+      <address>
+        Assistant Professor<br>
+        Department of Computer Science and Engineering<br>
+        KLS's Gogte Institute of Technology<br>
+        Udyambag, Belagavi 590008<br>
+        Karnataka, India
+      </address>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year">2026</span> Vidyadheesh Pandurangi.</p>
+  <p><a href="#vak">वाक्</a> ·
+     <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a> ·
+     <a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("theme").addEventListener("click", function () {
+    var now = document.documentElement.dataset.theme;
+    if (!now) {
+      now = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.dataset.theme = now === "dark" ? "light" : "dark";
+  });
+})();
+</script>
 </body>
 </html>
