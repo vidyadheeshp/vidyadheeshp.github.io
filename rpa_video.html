@@ -1,227 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Vidyadheesh Pandurangi</title>
-<!--
-Neaty HTML Template
-http://www.templatemo.com/tm-501-neaty
--->
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/magnific-popup.css">                                <!-- Magnific pop up style, http://dimsemenov.com/plugins/magnific-popup/ -->
-    <link rel="stylesheet" href="css/templatemo-style.css">                                   <!-- Templatemo style -->
-     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-          <![endif]-->
-		 <!-- Latest compiled and minified CSS -->
-<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RPA using UiPath — exercise series | Vidyadheesh Pandurangi</title>
+<meta name="description" content="Recorded UiPath examples for the Robotic Process Automation
+course taught by Vidyadheesh Pandurangi at KLS Gogte Institute of Technology, Belagavi.">
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="stylesheet" href="css/site.css">
 </head>
-    <body>        
-        <div class="container">
-            <div class="row">
-                <div class="tm-left-right-container">
-                    <!-- Left column: logo and menu -->
-                    <div class="tm-blue-bg tm-left-column">                        
-                        <div class="tm-logo-div text-xs-center">
-                            <img src="img/logo.png" alt="Logo">
-                            <h1 class="tm-site-name">Vidyadheesh Pandurangi</h1>
-                        </div>
-                        <nav class="tm-main-nav">
-                            <ul class="tm-main-nav-ul">
-                                <li class="tm-nav-item">
-                                    <a href="#web" class="tm-nav-item-link">Robotic Process Automation</a>
-                                </li>
-									
-                                <!--li class="tm-nav-item">
-                                    <a href="#rpa" class="tm-nav-item-link">Robotic Process Automation - RPA</a>
-                                </li-->
-                               
-                            </ul>
-                        </nav>                                         
-                    </div> <!-- Left column: logo and menu -->
-                    
-                    <!-- Right column: content -->
-                    <div class="tm-right-column">
-                        <figure>
-                            <img src="img/uipath.png" alt="Header image" class="img-fluid">    
-                        </figure>
+<body>
+<div class="wrap">
 
-                        <div class="tm-content-div">
-                            <!-- Welcome section -->
-                            <section id="welcome" class="tm-section">
-                                <header>
-                                    <h2 class="tm-blue-text tm-welcome-title tm-margin-b-45">RPA using UiPath | Examples</h2>
-                                </header>
-							</section>
-                            <section class="tm-section">
-								<div class="" id="play_area">
-									<h3> Example - 1</h3>
-									<iframe width="800" height="440" src="https://www.youtube.com/embed/uDlmHE75Eqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-								</div>
-							</section>
-							<div class="col-md-12">
-								<div class="col-md-4">
-									<div class="card" style="width: 15rem;">
-									  <ul class="list-group list-group-flush">
-										<li class="list-group-item explist" data-val="1" data-url="https://www.youtube.com/embed/uDlmHE75Eqw"><a href="#" class="tm-nav-item-link">Example - 1</a> <!--div class="card-body"> <p class="card-text"> Hello World example</p></div--></li>
-										<li class="list-group-item explist" data-val="2" data-url="https://www.youtube.com/embed/TjlbCrTzwwc"><a href="#" class="tm-nav-item-link">Example - 2</a></li>
-										<li class="list-group-item explist" data-val="3" data-url="https://www.youtube.com/embed/X3DmAT7ZekE"><a href="#" class="tm-nav-item-link">Example - 3</a></li>
-										<li class="list-group-item explist" data-val="4" data-url="https://www.youtube.com/embed/5-79rk880dI"><a href="#" class="tm-nav-item-link">Example - 4</a></li>
-										<li class="list-group-item explist" data-val="5" data-url="https://www.youtube.com/embed/h14U2WokPNM"><a href="#" class="tm-nav-item-link">Example - 5</a></li>
-										<li class="list-group-item explist" data-val="6" data-url="https://www.youtube.com/embed/uDlmHE75Eqw"><a href="#" class="tm-nav-item-link">Example - 6</a></li>
-					
-									  </ul>
-									</div>
-								
+<div class="top">
+  <span class="who"><a href="index.html" style="color:inherit;text-decoration:none">Vidyadheesh Pandurangi</a></span>
+  <nav>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#teaching">Teaching</a>
+    <a href="index.html#research">Research</a>
+    <a href="index.html#vak">Vāk</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <button id="theme" type="button">theme</button>
+</div>
 
-								</div>
-								<div class="col-md-4">
-									<div class="card" style="width: 15rem;">
-										<li class="list-group-item explist" data-val="7" data-url="https://www.youtube.com/embed/zh6Rx4Z27iI"><a href="#" class="tm-nav-item-link">Example - 7</a></li>
-										<li class="list-group-item explist" data-val="8" data-url="https://www.youtube.com/embed/7wzpj9L1UWA"><a href="#" class="tm-nav-item-link">Example - 8</a></li>
-										<li class="list-group-item explist" data-val="9" data-url="https://www.youtube.com/embed/3-QtmeJtOV4"><a href="#" class="tm-nav-item-link">Example - 9</a></li>
-										<li class="list-group-item explist" data-val="10" data-url="https://www.youtube.com/embed/1zLrYmqc384"><a href="#" class="tm-nav-item-link">Example - 10</a></li>
-										<li class="list-group-item explist" data-val="11" data-url="https://www.youtube.com/embed/wKcpIrGprTI"><a href="#" class="tm-nav-item-link">Example - 11</a></li>
-										<li class="list-group-item explist" data-val="12" data-url="https://www.youtube.com/embed/7JHBVAFGivE"><a href="#" class="tm-nav-item-link">Example - 12</a></li>
-										
-									</div>
-								</div>	
-								<div class="col-md-4">
-									<div class="card" style="width: 15rem;">
-										<li class="list-group-item explist" data-val="13" data-url="https://www.youtube.com/embed/5BMXIT2FNFA"><a href="#" class="tm-nav-item-link">Example - 13</a></li>
-										<li class="list-group-item explist" data-val="14" data-url="https://www.youtube.com/embed/RPZtNkq07aw"><a href="#" class="tm-nav-item-link">Example - 14</a></li>
-										<li class="list-group-item explist" data-val="15" data-url="https://www.youtube.com/embed/hOEf7-Ln_kI"><a href="#" class="tm-nav-item-link">Example - 15</a></li>
-										<li class="list-group-item explist" data-val="16" data-url="https://www.youtube.com/embed/NVTLuNLDFZs"><a href="#" class="tm-nav-item-link">Example - 16</a></li>
-										<li class="list-group-item explist" data-val="17" data-url="https://www.youtube.com/embed/dB9nVoi8ixY"><a href="#" class="tm-nav-item-link">Example - 17</a></li>
-										<li class="list-group-item explist" data-val="18" data-url="https://www.youtube.com/embed/GxxAbqxvP-8"><a href="#" class="tm-nav-item-link">Example - 18</a></li>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="card" style="width: 15rem;">
-										<li class="list-group-item explist" data-val="19" data-url="https://www.youtube.com/embed/DlmU5b4GqY4"><a href="#" class="tm-nav-item-link">Example - 19 </a><span class="badge badge-pill badge-warning">New</span></li>
-									</div>
-								</div>								
-							</div>	
-						</div>
-                            <!-- Second Gallery section -->     
-                            <!--section id="web" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Web Termworks</h2></header>
-                                <div class="tm-gallery-container tm-gallery-2">
-                                    <div class="tm-img-container tm-img-container-2">
-										<div class="" id="">
-										<h3>Termwork<br/>Example - 1</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/qxalPvjiw98" title="YouTube video player" frameborder="0" allowfullscreen></iframe> <!--a href="img/web.png"><img src="img/web.png" alt="Image" class="img-fluid tm-img-tn"></a>    
-										</div> 
-									</div>
-									 <div class="tm-img-container tm-img-container-2">
-										<div class="" id="">
-										<h3>Termwork<br/>Example - 2 | Part:1</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/kk-i9bYXtvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><!--a href="img/web.png"><img src="img/web.png" alt="Image" class="img-fluid tm-img-tn"></a>    
-										</div> 
-									</div>
-									<div class="tm-img-container tm-img-container-2">
-										<div class="" id="">
-										<h3>Termwork<br/>Example - 2 | Part:2</h3> 
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/FgQ5AcifQWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
-									</div>
-									<div class="tm-img-container tm-img-container-2">
-										<div class="" id="">
-										<h3>Termwork<br/>Example - 3</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/tSkcoiQLGzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
-									</div>
-									<div class="tm-img-container tm-img-container-2">
-										<div class="" id="">
-										<h3>Termwork<br/>Example - 6</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/RB_cW2g9e9Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
-									</div>
-									<div class="tm-img-container tm-img-container-2">
-										<div class="" id="">
-										<h3>Termwork<br/>Example - 7</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/3yFpusE3fuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
-									</div>
-									<div class="tm-img-container tm-img-container-2">
-										<div class="" id="">
-										<h3>Termwork<br/>Example - 8</h3>
-										<iframe width="560" height="315" class="img-fluid tm-img-tn" src="https://www.youtube.com/embed/3Go3B57-LGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
-									</div>
-			
-                                    
-                                    <!--div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-10.jpg"><img src="img/neaty-10.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>                                    
-                                </div>
-                            </section-->
-                            <footer>
-                                <p class="tm-copyright-p">Copyright &copy; <span class="tm-current-year">2021</span>
-                                
-                                | Designed by <a href="#" target="_parent">vidyadheesh</a></p>
-                            </footer>
-                        </div>  
-                        
-                    </div> <!-- Right column: content -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-                
-        <!-- load JS files -->
-        <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/jquery.magnific-popup.min.js"></script>     <!-- Magnific pop-up (http://dimsemenov.com/plugins/magnific-popup/) -->
-        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-        <!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script>     
-       
-            $(document).ready(function(){
+<header class="page-head">
+  <p class="eyebrow">Course material · UiPath Academic Alliance</p>
+  <h1>RPA using UiPath — examples</h1>
+  <p>Nineteen worked examples in UiPath Studio, recorded for the Robotic Process
+  Automation course. Pick an example from the list to load it.</p>
+  <a class="back" href="index.html#teaching">← Teaching</a>
+</header>
 
-                // Single page nav
-                $('.tm-main-nav').singlePageNav({
-                    'currentClass' : "active",
-                    offset : 20
-                });
+<div class="watch">
+  <div class="player">
+    <div class="frame">
+      <iframe id="player-frame" src="https://www.youtube.com/embed/uDlmHE75Eqw?rel=0"
+              title="RPA using UiPath example video" allowfullscreen
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <p class="caption" id="player-caption">Example 1</p>
+  </div>
 
-                // Magnific pop up
-                $('.tm-gallery-1').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+  <div>
+    <p class="eplist-head">Examples</p>
+    <ul class="eplist">
+      <li><button type="button" aria-current="true" data-title="Example 1" data-url="https://www.youtube.com/embed/uDlmHE75Eqw"><span class="num">01</span>Example 1</button></li>
+      <li><button type="button" data-title="Example 2" data-url="https://www.youtube.com/embed/TjlbCrTzwwc"><span class="num">02</span>Example 2</button></li>
+      <li><button type="button" data-title="Example 3" data-url="https://www.youtube.com/embed/X3DmAT7ZekE"><span class="num">03</span>Example 3</button></li>
+      <li><button type="button" data-title="Example 4" data-url="https://www.youtube.com/embed/5-79rk880dI"><span class="num">04</span>Example 4</button></li>
+      <li><button type="button" data-title="Example 5" data-url="https://www.youtube.com/embed/h14U2WokPNM"><span class="num">05</span>Example 5</button></li>
+      <li><button type="button" data-title="Example 6" data-url="https://www.youtube.com/embed/uDlmHE75Eqw"><span class="num">06</span>Example 6</button></li>
+      <li><button type="button" data-title="Example 7" data-url="https://www.youtube.com/embed/zh6Rx4Z27iI"><span class="num">07</span>Example 7</button></li>
+      <li><button type="button" data-title="Example 8" data-url="https://www.youtube.com/embed/7wzpj9L1UWA"><span class="num">08</span>Example 8</button></li>
+      <li><button type="button" data-title="Example 9" data-url="https://www.youtube.com/embed/3-QtmeJtOV4"><span class="num">09</span>Example 9</button></li>
+      <li><button type="button" data-title="Example 10" data-url="https://www.youtube.com/embed/1zLrYmqc384"><span class="num">10</span>Example 10</button></li>
+      <li><button type="button" data-title="Example 11" data-url="https://www.youtube.com/embed/wKcpIrGprTI"><span class="num">11</span>Example 11</button></li>
+      <li><button type="button" data-title="Example 12" data-url="https://www.youtube.com/embed/7JHBVAFGivE"><span class="num">12</span>Example 12</button></li>
+      <li><button type="button" data-title="Example 13" data-url="https://www.youtube.com/embed/5BMXIT2FNFA"><span class="num">13</span>Example 13</button></li>
+      <li><button type="button" data-title="Example 14" data-url="https://www.youtube.com/embed/RPZtNkq07aw"><span class="num">14</span>Example 14</button></li>
+      <li><button type="button" data-title="Example 15" data-url="https://www.youtube.com/embed/hOEf7-Ln_kI"><span class="num">15</span>Example 15</button></li>
+      <li><button type="button" data-title="Example 16" data-url="https://www.youtube.com/embed/NVTLuNLDFZs"><span class="num">16</span>Example 16</button></li>
+      <li><button type="button" data-title="Example 17" data-url="https://www.youtube.com/embed/dB9nVoi8ixY"><span class="num">17</span>Example 17</button></li>
+      <li><button type="button" data-title="Example 18" data-url="https://www.youtube.com/embed/GxxAbqxvP-8"><span class="num">18</span>Example 18</button></li>
+      <li><button type="button" data-title="Example 19" data-url="https://www.youtube.com/embed/DlmU5b4GqY4"><span class="num">19</span>Example 19<span class="new">New</span></button></li>
+    </ul>
+    <p class="more"><a href="web_video.html">Web Programming exercises →</a></p>
+  </div>
+</div>
 
-                $('.tm-gallery-2').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+<footer>
+  <p>© <span id="year">2026</span> Vidyadheesh Pandurangi.</p>
+  <p><a href="index.html">Home</a> ·
+     <a href="index.html#teaching">Teaching</a> ·
+     <a href="web_video.html">Web Programming exercises</a></p>
+</footer>
 
-                $('.tm-gallery-3').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
-
-                $('.tm-current-year').text(new Date().getFullYear());
-
-				$(document).on('click','.explist',function(e){
-					//e.preventD
-					var current_id = $(this).data("val");
-					
-					var header = '<h3>Example - '+current_id+'</h3>';
-					var url = $(this).data("url");
-					//alert(url);
-					$('#play_area').html(header+'<iframe width="800" height="440" src="'+url+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-				});                
-            });
-        </script>             
+</div>
+<script src="js/site.js"></script>
 </body>
 </html>
