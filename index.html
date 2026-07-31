@@ -3,38 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vidyadheesh Pandurangi — cybersecurity, teaching, and Sanskrit in computing</title>
+<title>Vidyadheesh Pandurangi — Assistant Professor, Computer Science &amp; Engineering</title>
 <meta name="description" content="Vidyadheesh Pandurangi — Assistant Professor of Computer
-Science and Engineering at KLS Gogte Institute of Technology. Cybersecurity research, teaching
-programming, and Vāk — a Sanskrit-native programming language whose type system is Pāṇini's
-kāraka grammar.">
+Science and Engineering and IT Cell Lead at KLS Gogte Institute of Technology, Belagavi. Eight
+years teaching programming; production software in Laravel, Node.js and React; UiPath and AWS
+certified educator.">
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <style>
-/* ------------------------------------------------------------------ tokens
-   मसी — manuscript ink, paper, and haritāla: the orpiment yellow Indian
-   manuscripts used for headings.  The same palette the Vāk pages use, so the
-   whole body of work reads as one thing. */
+/* ------------------------------------------------------------------ tokens */
 :root {
-  --ink:#16223f; --ink-soft:#4a5570; --ink-faint:#7c8499; --paper:#f7f6f1;
-  --paper-2:#eeece4; --rule:#cfcdc2; --gold:#a8781f; --gold-lit:#f0e4c4;
-  --indigo:#37508c; --crimson:#9a3324;
+  --ink:#1a1f2b; --ink-soft:#4c5566; --ink-faint:#7b8494;
+  --paper:#fbfbf9; --paper-2:#f2f2ee; --rule:#dcdcd5;
+  --accent:#1e4f8f; --accent-soft:#e8eef7; --warm:#8a6a1e;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink:#e6e3d9; --ink-soft:#a9aec0; --ink-faint:#767d92; --paper:#10141f;
-    --paper-2:#171c2b; --rule:#2c3346; --gold:#d8a94a; --gold-lit:#2a2415;
-    --indigo:#8aa2df; --crimson:#e0806e;
+    --ink:#e7e9ee; --ink-soft:#a6adbb; --ink-faint:#767e8d;
+    --paper:#0f1319; --paper-2:#171c25; --rule:#293140;
+    --accent:#84abe2; --accent-soft:#17222f; --warm:#d3ab5c;
   }
 }
 :root[data-theme="light"] {
-  --ink:#16223f; --ink-soft:#4a5570; --ink-faint:#7c8499; --paper:#f7f6f1;
-  --paper-2:#eeece4; --rule:#cfcdc2; --gold:#a8781f; --gold-lit:#f0e4c4;
-  --indigo:#37508c; --crimson:#9a3324;
+  --ink:#1a1f2b; --ink-soft:#4c5566; --ink-faint:#7b8494;
+  --paper:#fbfbf9; --paper-2:#f2f2ee; --rule:#dcdcd5;
+  --accent:#1e4f8f; --accent-soft:#e8eef7; --warm:#8a6a1e;
 }
 :root[data-theme="dark"] {
-  --ink:#e6e3d9; --ink-soft:#a9aec0; --ink-faint:#767d92; --paper:#10141f;
-  --paper-2:#171c2b; --rule:#2c3346; --gold:#d8a94a; --gold-lit:#2a2415;
-  --indigo:#8aa2df; --crimson:#e0806e;
+  --ink:#e7e9ee; --ink-soft:#a6adbb; --ink-faint:#767e8d;
+  --paper:#0f1319; --paper-2:#171c25; --rule:#293140;
+  --accent:#84abe2; --accent-soft:#17222f; --warm:#d3ab5c;
 }
 html {
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,
@@ -48,148 +45,188 @@ html {
 *,*::before,*::after { box-sizing:inherit; }
 body {
   margin:0; background:var(--paper); color:var(--ink);
-  font-family:var(--serif); font-size:17px; line-height:1.66;
+  font-family:var(--sans); font-size:16.5px; line-height:1.65;
 }
-.wrap { max-width:58rem; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
-p { max-width:38em; }
+.wrap { max-width:60rem; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+p { max-width:40em; }
 img { max-width:100%; height:auto; }
+a { color:var(--accent); text-underline-offset:.18em; }
 
 /* --------------------------------------------------------------- top bar */
 .top {
   display:flex; align-items:baseline; gap:.9rem 1.3rem; flex-wrap:wrap;
-  padding:1.1rem 0 .8rem; border-bottom:1px solid var(--rule);
+  padding:1rem 0 .8rem; border-bottom:1px solid var(--rule);
   position:sticky; top:0; background:var(--paper); z-index:10;
 }
-.top .who { font-size:1.05rem; letter-spacing:-.01em; }
-.top nav { margin-left:auto; display:flex; gap:1.1rem; flex-wrap:wrap;
-           font-family:var(--sans); font-size:.8rem; }
+.top .who { font-family:var(--serif); font-size:1.05rem; letter-spacing:-.01em; }
+.top nav { margin-left:auto; display:flex; gap:1.05rem; flex-wrap:wrap; font-size:.82rem; }
 .top nav a { color:var(--ink-soft); text-decoration:none; }
-.top nav a:hover, .top nav a:focus-visible { color:var(--gold); }
+.top nav a:hover, .top nav a:focus-visible { color:var(--accent); }
 .top button {
-  font:inherit; font-family:var(--sans); font-size:.71rem; cursor:pointer;
-  color:var(--ink-faint); background:transparent; border:1px solid var(--rule);
-  border-radius:2px; padding:.22rem .5rem;
+  font:inherit; font-size:.72rem; cursor:pointer; color:var(--ink-faint);
+  background:transparent; border:1px solid var(--rule); border-radius:3px;
+  padding:.22rem .5rem;
 }
-.top button:hover, .top button:focus-visible { border-color:var(--gold); color:var(--gold); }
+.top button:hover, .top button:focus-visible { border-color:var(--accent); color:var(--accent); }
 
 /* ------------------------------------------------------------------ hero */
-.hero { padding:clamp(2.5rem,7vw,5rem) 0 3rem; display:grid; gap:2.5rem;
-        grid-template-columns:1fr 13rem; align-items:start; }
+.hero { padding:clamp(2.2rem,6vw,4rem) 0 2.4rem; display:grid; gap:2.5rem;
+        grid-template-columns:1fr 12rem; align-items:start; }
 .hero .eyebrow {
-  margin:0 0 1rem; font-family:var(--sans); font-size:.73rem;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
+  margin:0 0 .8rem; font-size:.74rem; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--accent);
 }
 .hero h1 {
-  margin:0 0 1.1rem; font-weight:400; line-height:1.14; text-wrap:balance;
-  font-size:clamp(1.9rem,1.2rem + 3vw,3.1rem); letter-spacing:-.015em;
+  margin:0 0 .5rem; font-family:var(--serif); font-weight:400; line-height:1.12;
+  font-size:clamp(2.1rem,1.4rem + 2.6vw,3.1rem); letter-spacing:-.02em;
 }
-.hero .stand { font-size:1.08rem; color:var(--ink-soft); }
-.hero .portrait { border:1px solid var(--rule); border-radius:2px; }
-.hero .links { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.6rem; }
+.hero .role { margin:0 0 1.1rem; font-family:var(--serif); font-size:1.16rem;
+              color:var(--ink-soft); max-width:32em; }
+.hero .stand { font-size:1rem; color:var(--ink-soft); }
+.hero .portrait { border:1px solid var(--rule); border-radius:3px; }
+.hero .links { display:flex; gap:.55rem; flex-wrap:wrap; margin-top:1.5rem; }
 .hero .links a {
-  font-family:var(--sans); font-size:.82rem; text-decoration:none;
-  border:1px solid var(--rule); border-radius:2px; padding:.45rem .9rem;
-  color:var(--ink-soft);
+  font-size:.84rem; text-decoration:none; border:1px solid var(--rule);
+  border-radius:3px; padding:.45rem .9rem; color:var(--ink-soft);
 }
+.hero .links a.primary { border-color:var(--accent); color:var(--accent);
+                         background:var(--accent-soft); font-weight:600; }
 .hero .links a:hover, .hero .links a:focus-visible {
-  border-color:var(--gold); color:var(--gold);
+  border-color:var(--accent); color:var(--accent);
 }
 
-/* ------------------------------------------------------------- epigraph */
-.epigraph {
-  border-left:2px solid var(--gold); padding:.2rem 0 .2rem 1.2rem;
-  margin:0 0 2.5rem;
-}
-.epigraph .verse { font-size:1.05rem; line-height:1.75; margin:.4rem 0 .2rem;
-                   color:var(--ink); max-width:34em; }
-.epigraph p { font-size:.9rem; color:var(--ink-soft); margin:.2rem 0 .9rem; }
-.epigraph cite { font-family:var(--sans); font-size:.74rem; color:var(--ink-faint);
-                 font-style:normal; letter-spacing:.03em; }
-
-/* ------------------------------------------------------------- sections
-   Devanagari hangs its letters from a शिरोरेखा — a head-line. So does every
-   heading on this site, and on the Vāk pages. */
-section { padding:3.2rem 0 0; scroll-margin-top:4.5rem; }
-.head { border-top:1.5px solid var(--ink); padding-top:.5rem; margin-bottom:1.3rem;
-        display:flex; align-items:baseline; gap:.85rem; flex-wrap:wrap; }
-.head h2 { margin:0; font-weight:500; font-size:clamp(1.35rem,1.1rem + 1.2vw,1.85rem);
+/* ------------------------------------------------------------------ facts */
+.facts { display:grid; gap:0; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));
+         border:1px solid var(--rule); border-radius:3px; overflow:hidden;
+         background:var(--paper-2); }
+.facts div { padding:.85rem 1.1rem; border-left:1px solid var(--rule); }
+.facts div:first-child { border-left:0; }
+.facts b { display:block; font-family:var(--serif); font-size:1.5rem; font-weight:400;
            line-height:1.2; }
-.head .en { font-family:var(--sans); font-size:.77rem; color:var(--ink-soft); }
-.lede { font-size:1.08rem; color:var(--gold); max-width:32em; }
+.facts span { font-size:.78rem; color:var(--ink-faint); letter-spacing:.02em; }
 
-/* --------------------------------------------------------------- flagship */
-.flagship { border:1px solid var(--rule); border-radius:3px; overflow:hidden;
-            margin:1.5rem 0; }
-.flagship .banner { background:var(--paper-2); padding:1.4rem clamp(1rem,3vw,1.6rem);
-                    border-bottom:1px solid var(--rule); }
-.flagship .banner .name { font-size:2rem; line-height:1; margin:0 0 .5rem; }
-.flagship .banner .name span { font-family:var(--sans); font-size:.8rem;
-                               color:var(--ink-faint); letter-spacing:.1em;
-                               text-transform:uppercase; margin-left:.6rem;
-                               vertical-align:.35rem; }
-.flagship .banner p { margin:0; color:var(--ink-soft); font-size:.98rem; }
-.flagship pre { margin:0; padding:1.1rem clamp(1rem,3vw,1.6rem); overflow-x:auto;
-                border-bottom:1px solid var(--rule); }
-.flagship code { font-family:var(--mono); font-size:.83rem; line-height:1.72;
-                 white-space:pre; }
-.flagship .doors { display:flex; gap:.6rem; flex-wrap:wrap;
-                   padding:1rem clamp(1rem,3vw,1.6rem); }
-.flagship .doors a {
-  font-family:var(--sans); font-size:.82rem; text-decoration:none;
-  border:1px solid var(--rule); border-radius:2px; padding:.45rem .9rem;
-  color:var(--ink-soft);
+/* ---------------------------------------------------------------- sections */
+section { padding:3rem 0 0; scroll-margin-top:4.5rem; }
+.head { border-top:1.5px solid var(--ink); padding-top:.5rem; margin-bottom:1.2rem;
+        display:flex; align-items:baseline; gap:.85rem; flex-wrap:wrap; }
+.head h2 { margin:0; font-family:var(--serif); font-weight:500;
+           font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem); line-height:1.2; }
+.head .note { font-size:.79rem; color:var(--ink-faint); margin-left:auto; }
+
+/* ------------------------------------------------------------- experience */
+ul.roles { list-style:none; margin:1.1rem 0 0; padding:0; }
+ul.roles li { padding:1rem 0; border-bottom:1px solid var(--rule); max-width:none; }
+ul.roles li:first-child { border-top:1px solid var(--rule); }
+ul.roles .line { display:flex; align-items:baseline; gap:.6rem 1rem; flex-wrap:wrap; }
+ul.roles .title { font-weight:600; }
+ul.roles .when { margin-left:auto; font-size:.8rem; color:var(--ink-faint);
+                 white-space:nowrap; }
+ul.roles .org { display:block; font-size:.86rem; color:var(--ink-soft); margin-top:.1rem; }
+ul.roles p { margin:.5rem 0 0; font-size:.92rem; color:var(--ink-soft); max-width:52em; }
+
+/* --------------------------------------------------------------- projects */
+.projects { display:grid; gap:1rem; margin:1.2rem 0;
+            grid-template-columns:repeat(auto-fit,minmax(19rem,1fr)); }
+.proj { border:1px solid var(--rule); border-radius:3px; padding:1.1rem 1.15rem;
+        display:flex; flex-direction:column; }
+.proj h3 { margin:0 0 .15rem; font-size:1.03rem; font-weight:600; }
+.proj .meta { font-size:.79rem; color:var(--ink-faint); margin-bottom:.5rem; }
+.proj p { margin:0 0 .8rem; font-size:.9rem; color:var(--ink-soft); max-width:none; }
+.proj .stack { margin-top:auto; display:flex; gap:.32rem; flex-wrap:wrap; }
+.proj .stack span { font-family:var(--mono); font-size:.7rem; color:var(--ink-faint);
+                    border:1px solid var(--rule); border-radius:2px; padding:.1rem .38rem; }
+.proj .lead { display:inline-block; font-size:.68rem; letter-spacing:.07em;
+              text-transform:uppercase; color:var(--accent); font-weight:600;
+              margin-bottom:.35rem; }
+
+h4.sub { margin:1.9rem 0 .5rem; font-size:.76rem; letter-spacing:.1em;
+         text-transform:uppercase; color:var(--ink-faint); font-weight:600; }
+ul.compact { list-style:none; margin:0; padding:0; display:grid; gap:0;
+             grid-template-columns:repeat(auto-fit,minmax(17rem,1fr)); }
+ul.compact li { padding:.5rem .9rem .5rem 0; font-size:.91rem;
+                border-bottom:1px solid var(--rule); max-width:none; }
+ul.compact li b { font-weight:600; }
+ul.compact li i { font-style:normal; color:var(--ink-faint); }
+
+/* ------------------------------------------------------------------- vak */
+.vak { border:1px solid var(--rule); border-radius:3px; overflow:hidden; margin:1.3rem 0; }
+.vak .banner { background:var(--paper-2); padding:1.2rem clamp(1rem,3vw,1.5rem);
+               border-bottom:1px solid var(--rule); }
+.vak .banner .name { font-family:var(--serif); font-size:1.7rem; line-height:1;
+                     margin:0 0 .45rem; }
+.vak .banner .name span { font-size:.72rem; color:var(--ink-faint); letter-spacing:.1em;
+                          text-transform:uppercase; margin-left:.6rem;
+                          vertical-align:.32rem; }
+.vak .banner p { margin:0; color:var(--ink-soft); font-size:.93rem; }
+.vak pre { margin:0; padding:1rem clamp(1rem,3vw,1.5rem); overflow-x:auto;
+           border-bottom:1px solid var(--rule); }
+.vak code { font-family:var(--mono); font-size:.8rem; line-height:1.7; white-space:pre; }
+.vak .doors { display:flex; gap:.55rem; flex-wrap:wrap; padding:.95rem clamp(1rem,3vw,1.5rem); }
+.vak .doors a { font-size:.84rem; text-decoration:none; border:1px solid var(--rule);
+                border-radius:3px; padding:.45rem .9rem; color:var(--ink-soft); }
+.vak .doors a.first { border-color:var(--accent); color:var(--accent);
+                      background:var(--accent-soft); font-weight:600; }
+.vak .doors a:hover, .vak .doors a:focus-visible {
+  border-color:var(--accent); color:var(--accent);
 }
-.flagship .doors a.first { border-color:var(--gold); color:var(--gold);
-                           background:var(--gold-lit); font-weight:600; }
-.flagship .doors a:hover, .flagship .doors a:focus-visible {
-  border-color:var(--gold); color:var(--gold);
-}
-.k { color:var(--gold); font-weight:600; }
-.t { color:var(--indigo); font-weight:600; }
-.ka { color:var(--crimson); font-weight:600; border-bottom:1.5px solid currentColor; }
-.s { color:var(--indigo); }
+.k { color:var(--warm); font-weight:600; }
+.t { color:var(--accent); font-weight:600; }
+.ka { color:var(--accent); font-weight:600; border-bottom:1.5px solid currentColor; }
 .c { color:var(--ink-faint); font-style:italic; }
 
-/* ------------------------------------------------------------------ lists */
-ul.work { list-style:none; margin:1.2rem 0; padding:0; display:flex;
-          flex-direction:column; gap:0; }
-ul.work li { padding:.85rem 0; border-bottom:1px solid var(--rule); max-width:none; }
+/* --------------------------------------------------------------- research */
+ul.work { list-style:none; margin:1.1rem 0 0; padding:0; }
+ul.work li { padding:.8rem 0; border-bottom:1px solid var(--rule); max-width:none; }
 ul.work li:first-child { border-top:1px solid var(--rule); }
 ul.work .title { font-weight:600; }
 ul.work .title a { color:var(--ink); text-decoration:none;
                    border-bottom:1px solid var(--rule); }
 ul.work .title a:hover, ul.work .title a:focus-visible {
-  color:var(--gold); border-bottom-color:var(--gold);
+  color:var(--accent); border-bottom-color:var(--accent);
 }
-ul.work .where { display:block; font-family:var(--sans); font-size:.8rem;
-                 color:var(--ink-faint); margin-top:.2rem; }
-.more { font-family:var(--sans); font-size:.83rem; margin-top:1rem; }
+ul.work .where { display:block; font-size:.81rem; color:var(--ink-faint); margin-top:.15rem; }
+.more { font-size:.86rem; margin-top:1rem; }
 
-.cards { display:grid; gap:1rem; margin:1.3rem 0;
-         grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); }
+/* ----------------------------------------------------------------- skills */
+dl.skills { margin:1.1rem 0 0; display:grid; gap:0;
+            grid-template-columns:9rem 1fr; }
+dl.skills dt { padding:.6rem 1rem .6rem 0; font-size:.78rem; letter-spacing:.06em;
+               text-transform:uppercase; color:var(--ink-faint); font-weight:600;
+               border-top:1px solid var(--rule); }
+dl.skills dd { margin:0; padding:.6rem 0; font-size:.93rem; color:var(--ink-soft);
+               border-top:1px solid var(--rule); }
+
+/* ------------------------------------------------------------------ cards */
+.cards { display:grid; gap:1rem; margin:1.2rem 0;
+         grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); }
 .card { border:1px solid var(--rule); border-radius:3px; padding:1rem 1.1rem; }
-.card h3 { margin:0 0 .3rem; font-size:1.02rem; font-weight:600; }
-.card p { margin:0; font-size:.89rem; color:var(--ink-soft); max-width:none; }
-.card .tag { display:inline-block; font-family:var(--sans); font-size:.68rem;
-             letter-spacing:.08em; text-transform:uppercase; color:var(--gold);
-             margin-bottom:.4rem; }
-.card a { color:var(--gold); }
+.card h3 { margin:0 0 .3rem; font-size:1.01rem; font-weight:600; }
+.card p { margin:0; font-size:.9rem; color:var(--ink-soft); max-width:none; }
+.card .tag { display:inline-block; font-size:.68rem; letter-spacing:.08em;
+             text-transform:uppercase; color:var(--accent); margin-bottom:.4rem;
+             font-weight:600; }
+
+ul.bullets { margin:1.1rem 0 0; padding-left:1.1rem; }
+ul.bullets li { margin:.42rem 0; font-size:.94rem; color:var(--ink-soft); max-width:52em; }
+ul.bullets li b { color:var(--ink); font-weight:600; }
 
 /* ---------------------------------------------------------------- contact */
-.contact { display:grid; gap:2rem; grid-template-columns:1fr 1fr; margin-top:1.2rem; }
-.contact address { font-style:normal; color:var(--ink-soft); font-size:.95rem; }
-.contact .mail { display:block; margin:.35rem 0; font-family:var(--mono);
-                 font-size:.86rem; }
+.contact { display:grid; gap:2rem; grid-template-columns:1fr 1fr; margin-top:1.1rem; }
+.contact address { font-style:normal; color:var(--ink-soft); font-size:.93rem; }
+.contact .mail { display:block; margin:.3rem 0; font-family:var(--mono); font-size:.86rem; }
 
-footer { border-top:1.5px solid var(--ink); margin-top:4.5rem; padding:1.2rem 0 4rem;
-         font-family:var(--sans); font-size:.79rem; color:var(--ink-faint); }
+footer { border-top:1.5px solid var(--ink); margin-top:4rem; padding:1.2rem 0 4rem;
+         font-size:.8rem; color:var(--ink-faint); }
 footer p { margin:.3rem 0; max-width:none; }
-a { color:var(--gold); text-underline-offset:.18em; }
 
-@media (max-width:46rem) {
-  .hero { grid-template-columns:1fr; gap:1.6rem; }
-  .hero .portrait-wrap { max-width:11rem; }
+@media (max-width:48rem) {
+  .hero { grid-template-columns:1fr; gap:1.5rem; }
+  .hero .portrait-wrap { max-width:10rem; }
   .contact { grid-template-columns:1fr; }
+  .facts div { border-left:0; border-top:1px solid var(--rule); }
+  .facts div:first-child { border-top:0; }
+  dl.skills { grid-template-columns:1fr; }
+  dl.skills dd { border-top:0; padding-top:0; }
   .top { position:static; }
 }
 @media (prefers-reduced-motion:reduce) {
@@ -204,10 +241,12 @@ a { color:var(--gold); text-underline-offset:.18em; }
 <div class="top">
   <span class="who">Vidyadheesh Pandurangi</span>
   <nav>
-    <a href="#vak">वाक् · Vāk</a>
-    <a href="#research">Research</a>
-    <a href="#built">Built</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
     <a href="#teaching">Teaching</a>
+    <a href="#research">Research</a>
+    <a href="#vak">Vāk</a>
+    <a href="#skills">Skills</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -217,15 +256,18 @@ a { color:var(--gold); text-underline-offset:.18em; }
 <header class="hero">
   <div>
     <p class="eyebrow">Assistant Professor · Computer Science &amp; Engineering</p>
-    <h1>Sanskrit gets quoted in computing. I wanted to see it compiled.</h1>
-    <p class="stand">I teach programming languages and robotic process automation
-    at KLS Gogte Institute of Technology, and my research is in cybersecurity. Alongside
-    them, for its own sake, I built <a href="#vak">Vāk</a> — a programming language
-    whose keywords are Sanskrit and whose type system is Pāṇini's kāraka grammar.
-    What I enjoy most is none of that: it is the moment a student stops copying
-    syntax and sees how a language actually works.</p>
+    <h1>Vidyadheesh Pandurangi</h1>
+    <p class="role">I teach programming, and I build the software my institution
+    runs on.</p>
+    <p class="stand">Eight years teaching at KLS Gogte Institute of Technology,
+    Belagavi — web and Android programming, MEAN-stack development, data structures
+    in Python, data visualisation, operating systems, DBMS and C — alongside five
+    years building and maintaining production software in PHP, Laravel, Node.js and
+    React. As <b>IT Cell Lead</b> I own the internal systems the institute runs on,
+    from requirement gathering through deployment and maintenance. UiPath Certified
+    Educator since 2019, AWS Educator since 2025.</p>
     <div class="links">
-      <a href="#vak">वाक् · the language</a>
+      <a class="primary" href="#projects">Selected projects</a>
       <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
       <a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a>
       <a href="#contact">Contact</a>
@@ -236,84 +278,211 @@ a { color:var(--gold); text-underline-offset:.18em; }
   </div>
 </header>
 
-<div class="epigraph">
-  <p class="verse">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>
-  मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥</p>
-  <p>You have a right to perform your prescribed duty, but not to the fruits of
-  action. Never consider yourself the cause of the results of your activities,
-  and never be attached to not doing your duty.</p>
-  <cite>Bhagavad Gītā II.47</cite>
-
-  <p class="verse">न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।</p>
-  <p>There is nothing in this world as purifying as knowledge.</p>
-  <cite>Bhagavad Gītā IV.38</cite>
+<div class="facts">
+  <div><b>8 yrs</b><span>teaching, since 2017</span></div>
+  <div><b>5 yrs</b><span>production development</span></div>
+  <div><b>15+</b><span>systems delivered</span></div>
+  <div><b>5</b><span>research publications</span></div>
 </div>
 
-<!-- ======================================================= the flagship -->
-<section id="vak">
+<!-- ======================================================== experience -->
+<section id="experience">
   <div class="head">
-    <h2>वाक्</h2><span class="en">a Sanskrit-native programming language</span>
+    <h2>Experience</h2>
   </div>
-  <p class="lede">Sanskrit does not decide meaning by word order. It marks the
-  role each participant plays in an action — and Vāk makes those roles a type
-  system.</p>
-  <p>Pāṇini analysed a sentence by <b>kāraka</b>: who acts, what is acted upon,
-  by what means, from what source. Vāk lets a function's parameters declare those
-  same roles, and then checks the grammar of your function the way Pāṇini checked
-  the grammar of a sentence. Because the roles are marked, the arguments carry
-  their own labels and the order stops mattering — exactly the freedom that case
-  endings give a Sanskrit sentence.</p>
+  <ul class="roles">
+    <li>
+      <div class="line">
+        <span class="title">Assistant Professor, Computer Science &amp; Engineering</span>
+        <span class="when">Oct 2017 – present</span>
+      </div>
+      <span class="org">KLS Gogte Institute of Technology, Belagavi</span>
+      <p>Courses handled: Web Programming, Android Programming, RPA using UiPath,
+      MEAN-stack Web Development, Data Visualisation, Data Structures using Python,
+      Operating Systems, DBMS and C Programming. Active member of the curriculum
+      design team for Web Programming, Advanced Web Programming and Data
+      Visualisation using Python, with a consistent brief: get students
+      industry-ready.</p>
+    </li>
+    <li>
+      <div class="line">
+        <span class="title">IT Cell Lead</span>
+        <span class="when">Sept 2019 – present</span>
+      </div>
+      <span class="org">KLS Gogte Institute of Technology, Belagavi</span>
+      <p>Lead for the institute's internal software — development, deployment and
+      ongoing maintenance — and for consultancy projects delivered to outside
+      organisations. Faculty in charge of software and website development through
+      the IT Cell since June 2023.</p>
+    </li>
+    <li>
+      <div class="line">
+        <span class="title">Junior Software Engineer</span>
+        <span class="when">Aug 2014 – Mar 2015</span>
+      </div>
+      <span class="org">Leviosa Consulting Pvt Ltd</span>
+      <p>Contributed to educational ERP software for CMR Institute of Technology and
+      CMR University. HTML, CSS, JavaScript, jQuery, PHP, XAMPP, Bitbucket.</p>
+    </li>
+    <li>
+      <div class="line">
+        <span class="title">Full Stack Web Developer <i>(internship)</i></span>
+        <span class="when">Jun 2016 – Jul 2017</span>
+      </div>
+      <span class="org">Centre for Nano Science &amp; Engineering, IISc Bangalore</span>
+      <p>Built and deployed Equipment Manager, a LAMP-stack application for managing
+      laboratory equipment at the CeNSE lab.</p>
+    </li>
+  </ul>
+</section>
 
-  <div class="flagship">
-    <div class="banner">
-      <p class="name">वाक् <span>Vāk</span></p>
-      <p>Every stage of its front end — lexer, parser, analyser, compiler and
-      virtual machine — is written in Vāk itself.</p>
+<!-- ========================================================== projects -->
+<section id="projects">
+  <div class="head">
+    <h2>Projects</h2>
+    <span class="note">Role given where I led the work end to end</span>
+  </div>
+  <p>Software that went into production — institutional systems at Gogte Institute
+  of Technology, consultancy work for industry and trusts, and RPA automations built
+  with students.</p>
+
+  <div class="projects">
+    <div class="proj">
+      <span class="lead">Project lead</span>
+      <h3>Performance Management System</h3>
+      <p class="meta">Hyloc Hydrotechnic Pvt Ltd · Oct 2025 – May 2026</p>
+      <p>Employee performance management for a mechanical-manufacturing firm, built
+      around the eight KAIZEN principles as the analysis framework. Records are
+      updated and scored against the organisation's own key performance
+      indicators.</p>
+      <div class="stack"><span>React</span><span>Node.js</span><span>Postgres</span><span>Tailwind</span></div>
     </div>
-<pre><code><span class="c"># संग्रहः is the अपादानम् — what we draw *from*.</span>
-<span class="c"># परीक्षा is the करणम् — the means *by which*.</span>
-<span class="k">कार्यम्</span> छानय(<span class="ka">अपादानम्</span> <span class="t">सूची</span> संग्रहः, <span class="ka">करणम्</span> <span class="t">कार्यम्</span> परीक्षा) : <span class="t">सूची</span> {
-    <span class="t">सूची</span> फलम् = []।
-    <span class="k">प्रत्येकम्</span> (अङ्गम् <span class="k">अन्तः</span> संग्रहः) {
-        <span class="k">यदि</span> (परीक्षा(अङ्गम्)) { योजय(फलम्, अङ्गम्)। }
-    }
-    <span class="k">प्रत्यागच्छ</span> फलम्।
-}
-
-<span class="c"># तीनों एक ही आह्वान — the order is free because the roles are marked.</span>
-<span class="k">मुद्रय</span> छानय(अङ्काः, समः)।
-<span class="k">मुद्रय</span> छानय(<span class="ka">अपादानम्</span>: अङ्काः, <span class="ka">करणम्</span>: समः)।
-<span class="k">मुद्रय</span> छानय(<span class="ka">करणम्</span>: समः, <span class="ka">अपादानम्</span>: अङ्काः)।</code></pre>
-    <div class="doors">
-      <a class="first" href="vak/playground.html">Run it in your browser →</a>
-      <a href="vak/">About the language</a>
-      <a href="vak/manual.html">The manual</a>
-      <a href="https://github.com/vidyadheeshp/vak" target="_blank" rel="noopener">Source</a>
+    <div class="proj">
+      <span class="lead">Project lead</span>
+      <h3>Resolutions Manager</h3>
+      <p class="meta">Karnataka Law Society · Sept 2025 – Nov 2025</p>
+      <p>Tracks the resolutions passed in weekly management meetings — agenda, notes,
+      resolutions and follow-up actions in one place, so items get closed rather than
+      lost. Led from requirement gathering to deployment and maintenance; it also
+      removed most of the printing the process used to need.</p>
+      <div class="stack"><span>React</span><span>Node.js</span><span>Postgres</span><span>Tailwind</span></div>
+    </div>
+    <div class="proj">
+      <span class="lead">Project lead</span>
+      <h3>OfficeERP — Human Resource Planning</h3>
+      <p class="meta">KLS Gogte Institute of Technology · Jun 2023 – Jun 2025</p>
+      <p>Institute-wide HR platform: staff records, salary, leave, biometric punch
+      records, faculty achievements, internship tracking, student enquiry management,
+      e-tendering, admission-lead monitoring and recruitment scrutiny. Led the whole
+      build and its front-end design.</p>
+      <div class="stack"><span>Laravel</span><span>PHP</span><span>MySQL</span></div>
+    </div>
+    <div class="proj">
+      <h3>Computer Centre Lab Allocator</h3>
+      <p class="meta">KLS Gogte Institute of Technology · Aug 2022 – Jan 2023 · Front-end developer</p>
+      <p>Allocates centralised computer-lab facilities across departments from their
+      requisitions, weighing lab capacity against the students each lab course has to
+      seat, and reports utilisation back as a chart.</p>
+      <div class="stack"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>jQuery</span></div>
+    </div>
+    <div class="proj">
+      <h3>Resolution Manager</h3>
+      <p class="meta">KLS Gogte Institute of Technology · Jan 2022 – Jul 2022 · Full-stack developer</p>
+      <p>ERP for the resolutions framed at the institute, modelling each one as a
+      workflow so progress after a resolution is passed stays visible. The earlier
+      PHP system that the 2025 React build for KLS grew out of.</p>
+      <div class="stack"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>jQuery</span></div>
+    </div>
+    <div class="proj">
+      <h3>Krishnamath ERP</h3>
+      <p class="meta">RPD Belagavi · Apr 2020 – Jun 2021 · Full-stack developer</p>
+      <p>ERP with an online seva booking facility for the temple, replacing a
+      counter-only process.</p>
+      <div class="stack"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>jQuery</span></div>
     </div>
   </div>
 
-  <p>A Vāk program can be executed by five different engines — a tree-walking
-  interpreter, a bytecode virtual machine, that machine written in Vāk, a machine
-  in C, and the whole self-hosted toolchain compiled to a native executable. All
-  five are held to byte-identical output on every example, which is what keeps the
-  claim honest. The playground above is that same toolchain compiled to
-  WebAssembly: it lexes, parses, analyses, compiles and runs Vāk inside the
-  browser, with no server involved.</p>
+  <h4 class="sub">Other institutional systems</h4>
+  <ul class="compact">
+    <li><b>Elective Course Allocation</b> — <i>allocating electives against seat limits and student preference</i></li>
+    <li><b>Indents Management</b> — <i>raising, routing and tracking purchase indents</i></li>
+    <li><b>Leave Management</b> — <i>staff leave requests and approvals</i></li>
+    <li><b>Inventory Management</b> — <i>institutional stock and asset records</i></li>
+    <li><b>Management Admission Software</b> — <i>admission intake under the management quota</i></li>
+    <li><b>Invigilation Allocation</b> — <i>examination duty rostering</i></li>
+  </ul>
+
+  <h4 class="sub">Automation — RPA with UiPath</h4>
+  <ul class="compact">
+    <li><b>Auto Attendance Sheet Generation</b> — <i>attendance sheets for six courses in three minutes, from Excel course and faculty data</i></li>
+    <li><b>LinkedIn Profile Data Collection</b> — <i>gathering alumni career data with minimal human intervention</i></li>
+  </ul>
+
+  <h4 class="sub">Websites</h4>
+  <ul class="compact">
+    <li><b>Tatva Pre School</b> — <i>website for the pre-school</i></li>
+    <li><b>KrishnaBhaktiPeetha</b> — <i>website for the maṭha</i></li>
+  </ul>
+
+  <p class="more">Repositories on
+  <a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a>.</p>
+</section>
+
+<!-- ========================================================== teaching -->
+<section id="teaching">
+  <div class="head">
+    <h2>Teaching</h2>
+    <span class="note">Department of CSE, KLS Gogte Institute of Technology</span>
+  </div>
+  <p>Teaching programming to students meeting it for the first time is the part of
+  this work I would keep if I had to give up the rest. Both flagship courses are
+  backed by recorded exercise series, so students can work at their own pace and
+  return to whatever did not land the first time.</p>
+  <div class="cards">
+    <div class="card">
+      <span class="tag">Course</span>
+      <h3>Web Programming</h3>
+      <p>Design and development, through to MEAN-stack applications.
+      <a href="web_video.html">Exercise video series →</a></p>
+    </div>
+    <div class="card">
+      <span class="tag">Course · UiPath Academic Alliance</span>
+      <h3>Robotic Process Automation</h3>
+      <p>Certified Academic Alliance educator.
+      <a href="rpa_video.html">RPA video series →</a></p>
+    </div>
+  </div>
+  <ul class="bullets">
+    <li>Guided students to be crowned <b>UiPath Student Developer Champions</b> for
+    four consecutive years, 2022 to present.</li>
+    <li>Founded <b>UiPath RPA Innovators</b>, a student club, in 2023.</li>
+    <li>Nominated a <b>UiPath Educator</b> in 2019 and an <b>AWS Educator</b> in 2025.</li>
+    <li>Ran workshops and training on RPA with UiPath, full-stack web development,
+    data structures in Python, and UI design in Figma.</li>
+    <li>Judged hackathons on full-stack web projects; participated in the finale of
+    <b>Police Hackathon 2023</b>, hosted by Hack2Skills and IIIT Bangalore.</li>
+    <li>Established the <b>Centre for Sanskrit Learning</b> at KLS Gogte Institute of
+    Technology with Central Sanskrit University, Delhi, in August 2025.</li>
+  </ul>
 </section>
 
 <!-- ========================================================== research -->
 <section id="research">
   <div class="head">
-    <h2>संशोधनम्</h2><span class="en">published research</span>
+    <h2>Research</h2>
   </div>
-  <p>My current research is in <b>cybersecurity</b>. The published work below is
-  earlier — applied machine learning on sensing, detection and classification
-  problems, and the question of how well a model's accuracy survives contact with
-  the real data it was meant for.</p>
+  <p>Applied machine learning on sensing, detection and classification problems —
+  and the question that follows all of them: how well a model's reported accuracy
+  survives contact with the data it was actually meant for. More recent interests
+  are blockchain in healthcare, security, and programming-language design.</p>
   <ul class="work">
     <li>
       <span class="title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ugHoL5oAAAAJ&amp;citation_for_view=ugHoL5oAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">Detection &amp; Classification of Electronic Nose System</a></span>
       <span class="where">2021 · 5th International Conference on Intelligent Computing and Control Systems (ICICCS)</span>
+    </li>
+    <li>
+      <span class="title">Blockchain Technology in Healthcare</span>
+      <span class="where">JNNCE Journal of Engineering and Management</span>
     </li>
     <li>
       <span class="title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ugHoL5oAAAAJ&amp;citation_for_view=ugHoL5oAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Building Efficient Fruit Detection Model</a></span>
@@ -332,137 +501,123 @@ a { color:var(--gold); text-underline-offset:.18em; }
   <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
 </section>
 
-<!-- ============================================================= built -->
-<section id="built">
+<!-- =============================================================== vak -->
+<section id="vak">
   <div class="head">
-    <h2>निर्मितानि</h2><span class="en">systems built and deployed</span>
+    <h2>Vāk — a language and its compiler</h2>
+    <span class="note">Independent project</span>
   </div>
-  <p>Software that went into use — institutional tools at Gogte Institute of
-  Technology, and booking and management systems built for organisations in
-  Karnataka.</p>
-  <div class="cards">
-    <div class="card">
-      <span class="tag">Institutional</span>
-      <h3>Resolution Manager</h3>
-      <p>KLS Gogte Institute of Technology, Belagavi.</p>
+  <p>A compiler project I built on my own time: a programming language whose entire
+  front end — lexer, parser, semantic analyser, bytecode compiler and virtual
+  machine — is written in the language itself. Its type system encodes the
+  <b>kāraka</b> roles of Pāṇini's grammar, so a function declares what part each
+  argument plays in the action rather than relying on position, and argument order
+  stops mattering.</p>
+
+  <div class="vak">
+    <div class="banner">
+      <p class="name">वाक् <span>Vāk</span></p>
+      <p>Self-hosting, with five execution engines held to byte-identical output.</p>
     </div>
-    <div class="card">
-      <span class="tag">Institutional</span>
-      <h3>Lab Allocator</h3>
-      <p>KLS Gogte Institute of Technology, Belagavi.</p>
-    </div>
-    <div class="card">
-      <span class="tag">Automation · RPA</span>
-      <h3>Auto Attendance Sheet Generation</h3>
-      <p>KLS Gogte Institute of Technology, Belagavi.</p>
-    </div>
-    <div class="card">
-      <span class="tag">Automation · RPA</span>
-      <h3>LinkedIn Profile Data Collection</h3>
-      <p>KLS Gogte Institute of Technology, Belagavi.</p>
-    </div>
-    <div class="card">
-      <span class="tag">Institutional</span>
-      <h3>Indents Management System</h3>
-      <p>Raising, routing and tracking departmental purchase indents.</p>
-    </div>
-    <div class="card">
-      <span class="tag">Institutional</span>
-      <h3>Elective Allocation Software</h3>
-      <p>Allocating elective subjects to students against seat limits and preferences.</p>
-    </div>
-    <div class="card">
-      <span class="tag">ERP</span>
-      <h3>OfficeERP</h3>
-      <p>Managing an organisation's internal resources — HR records, salary and
-      biometric attendance.</p>
-    </div>
-    <div class="card">
-      <span class="tag">Deployed</span>
-      <h3>Krishnamath Seva Booking</h3>
-      <p>RPD Belagavi.</p>
-    </div>
-    <div class="card">
-      <span class="tag">Website</span>
-      <h3>Tatva Pre School</h3>
-      <p>Website for the pre-school.</p>
-    </div>
-    <div class="card">
-      <span class="tag">Website</span>
-      <h3>KrishnaBhaktiPeetha</h3>
-      <p>Website for the maṭha.</p>
+<pre><code><span class="c"># संग्रहः is the अपादानम् — the source we draw from.</span>
+<span class="c"># परीक्षा is the करणम् — the means by which.</span>
+<span class="k">कार्यम्</span> छानय(<span class="ka">अपादानम्</span> <span class="t">सूची</span> संग्रहः, <span class="ka">करणम्</span> <span class="t">कार्यम्</span> परीक्षा) : <span class="t">सूची</span> {
+    <span class="t">सूची</span> फलम् = []।
+    <span class="k">प्रत्येकम्</span> (अङ्गम् <span class="k">अन्तः</span> संग्रहः) {
+        <span class="k">यदि</span> (परीक्षा(अङ्गम्)) { योजय(फलम्, अङ्गम्)। }
+    }
+    <span class="k">प्रत्यागच्छ</span> फलम्।
+}
+
+<span class="c"># The same call three ways — order is free because the roles are marked.</span>
+<span class="k">मुद्रय</span> छानय(अङ्काः, समः)।
+<span class="k">मुद्रय</span> छानय(<span class="ka">अपादानम्</span>: अङ्काः, <span class="ka">करणम्</span>: समः)।
+<span class="k">मुद्रय</span> छानय(<span class="ka">करणम्</span>: समः, <span class="ka">अपादानम्</span>: अङ्काः)।</code></pre>
+    <div class="doors">
+      <a class="first" href="https://vidyadheeshp.github.io/vak/playground.html" target="_blank" rel="noopener">Run it in your browser →</a>
+      <a href="https://vidyadheeshp.github.io/vak/" target="_blank" rel="noopener">About the language</a>
+      <a href="https://vidyadheeshp.github.io/vak/manual.html" target="_blank" rel="noopener">The manual</a>
+      <a href="https://github.com/vidyadheeshp/vak" target="_blank" rel="noopener">Source</a>
     </div>
   </div>
-  <p class="more">Repositories on
-  <a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a>.</p>
+
+  <p>A Vāk program runs on five engines — a tree-walking interpreter, a bytecode
+  virtual machine, that machine rewritten in Vāk, a machine in C, and the whole
+  self-hosted toolchain compiled to a native executable. All five are held to
+  byte-identical output on every example, which is what keeps the self-hosting claim
+  testable rather than rhetorical. The playground linked above is that same toolchain
+  compiled to WebAssembly: it lexes, parses, analyses, compiles and runs Vāk inside
+  the browser, with no server involved.</p>
+  <p>It has turned out to be a useful teaching language as well. A student who can
+  read the keywords can often guess what a program does before anyone explains the
+  syntax.</p>
 </section>
 
-<!-- ========================================================== teaching -->
-<section id="teaching">
+<!-- ============================================================ skills -->
+<section id="skills">
   <div class="head">
-    <h2>अध्यापनम्</h2><span class="en">teaching</span>
+    <h2>Skills</h2>
   </div>
-  <p>Department of Computer Science and Engineering, KLS Gogte Institute of
-  Technology. Teaching programming to students meeting it for the first time is
-  the part of this work I would keep if I had to give up the rest. The courses
-  are backed by recorded exercise series, so students can go at their own pace
-  and return to anything that did not land the first time.</p>
-  <div class="cards">
-    <div class="card">
-      <span class="tag">Courses</span>
-      <h3>Programming Languages</h3>
-      <p>Including web programming — design and development.
-      <a href="web_video.html">Exercise video series →</a></p>
-    </div>
-    <div class="card">
-      <span class="tag">Course · UiPath Academic Alliance</span>
-      <h3>Robotic Process Automation</h3>
-      <p>Certified Academic Alliance educator.
-      <a href="rpa_video.html">RPA video series →</a></p>
-    </div>
-  </div>
+  <dl class="skills">
+    <dt>Languages</dt><dd>C, C++, Java, Python, JavaScript, PHP, Node.js, jQuery</dd>
+    <dt>Interface</dt><dd>HTML, CSS, Bootstrap, Tailwind CSS, React</dd>
+    <dt>Stacks</dt><dd>MERN, MEAN, LAMP</dd>
+    <dt>Databases</dt><dd>MySQL, PostgreSQL, MongoDB</dd>
+    <dt>Technologies</dt><dd>Robotic Process Automation (UiPath), WordPress, Laravel</dd>
+    <dt>Tools</dt><dd>UiPath Studio, Android Studio, Figma, GitHub, Bitbucket, MySQL
+      Workbench, pgAdmin, XAMPP, WAMP, cPanel, LaTeX</dd>
+  </dl>
 </section>
 
 <!-- ============================================================= about -->
 <section id="about">
   <div class="head">
-    <h2>परिचयः</h2><span class="en">about</span>
+    <h2>About</h2>
   </div>
-  <p>I hold an MTech in Software Engineering from MIT Manipal and a bachelor's
-  degree from Visvesvaraya Technological University. Before teaching, I worked as
-  a Junior Software Engineer at Leviosa Consulting Pvt Ltd on ERP development,
-  deployment and maintenance.</p>
-  <p>My research is in cybersecurity. My teaching runs through programming
-  languages and robotic process automation; what I build runs through web and
-  application development, machine learning and natural language processing.
-  Alongside them I read Indian philosophy —
-  particularly Dvaita epistemology and <i>tarka</i>, the classical logic
-  tradition.</p>
-  <p>What holds those together is a conviction that Sanskrit belongs <i>in</i>
-  technology rather than beside it. It is usually invoked ceremonially in computing
-  — a quotation at the top of a paper, a claim about its suitability for machines,
-  and nothing built. I wanted to find out what it costs to actually do it.</p>
-  <p>The two halves are less separate than they look. Pāṇini's Aṣṭādhyāyī is a
-  formal grammar with rule ordering and metarules, written twenty-five centuries
-  before anyone spoke of parsers; the <i>tarka</i> literature is a theory of valid
-  inference. <a href="#vak">Vāk</a> is what happens when you take that seriously
-  enough to compile it — and it turns out to make a rather good teaching language,
-  because a student who can read the keywords can often guess what a program
-  means.</p>
+  <p>I hold an MTech in Software Engineering from Manipal Institute of Technology
+  and a BE in Information Science &amp; Engineering from Tontadarya College of
+  Engineering, Gadag (VTU). I have been teaching at KLS Gogte Institute of
+  Technology since 2017, and leading its IT Cell since 2019.</p>
+  <p>What I care about in both halves of the job is the same thing: the moment a
+  student stops copying syntax and starts seeing how a language actually works, and
+  the moment a piece of software stops being a demo and starts being the thing an
+  office uses every day. Most of the systems listed above began as a process
+  somebody was running on paper.</p>
+  <p>Outside that I read Indian philosophy, particularly Dvaita epistemology and
+  <i>tarka</i>, the classical logic tradition. That reading is what led to
+  <a href="#vak">Vāk</a>: Pāṇini's Aṣṭādhyāyī is a formal grammar with rule ordering
+  and metarules, written twenty-five centuries before anyone spoke of parsers, and I
+  wanted to find out what it costs to actually compile it rather than just cite it.
+  In August 2025 I helped establish the Centre for Sanskrit Learning at Gogte
+  Institute of Technology in collaboration with Central Sanskrit University,
+  Delhi.</p>
+  <h4 class="sub">Courses &amp; workshops attended</h4>
+  <ul class="compact">
+    <li><b>Research Methodology</b> — <i>NPTEL, 2024</i></li>
+    <li><b>Police Hackathon</b> — <i>Hack2Skills &amp; IIIT Bangalore, 2023</i></li>
+    <li><b>DevCon 2020</b> — <i>UiPath, 2020</i></li>
+    <li><b>LaTeX Technology</b> — <i>Gopalan College of Engineering &amp; Management, 2020</i></li>
+    <li><b>Effective Engineering Teaching in Practice</b> — <i>NPTEL, IIT Madras, 2019</i></li>
+    <li><b>Introduction to Machine Learning</b> — <i>KLS Gogte Institute of Technology, 2018</i></li>
+    <li><b>Cisco Networking</b> — <i>Manipal Institute of Technology, 2015</i></li>
+    <li><b>i-PRENEUR</b> — <i>IIT Roorkee, 2013</i></li>
+  </ul>
   <p class="more"><a href="readmore.html">More about me →</a></p>
 </section>
 
 <!-- =========================================================== contact -->
 <section id="contact">
   <div class="head">
-    <h2>सम्पर्कः</h2><span class="en">contact</span>
+    <h2>Contact</h2>
   </div>
   <div class="contact">
     <div>
-      <p>The quickest way to reach me is email — for research collaboration,
-      student projects, or anything about Vāk.</p>
+      <p>Email is the quickest way to reach me — for research collaboration,
+      consultancy work, student projects, or anything about Vāk.</p>
       <a class="mail" href="mailto:vjpandurangi@git.edu">vjpandurangi@git.edu</a>
       <a class="mail" href="mailto:vidyadheeshp@gmail.com">vidyadheeshp@gmail.com</a>
+      <p class="more"><a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
     </div>
     <div>
       <p><strong>Prof. Vidyadheesh Pandurangi</strong></p>
@@ -479,7 +634,8 @@ a { color:var(--gold); text-underline-offset:.18em; }
 
 <footer>
   <p>© <span id="year">2026</span> Vidyadheesh Pandurangi.</p>
-  <p><a href="#vak">वाक्</a> ·
+  <p><a href="#projects">Projects</a> ·
+     <a href="#vak">Vāk</a> ·
      <a href="https://scholar.google.co.in/citations?user=ugHoL5oAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a> ·
      <a href="https://github.com/vidyadheeshp/" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
