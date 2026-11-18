@@ -4,6 +4,27 @@
   var year = document.getElementById("year");
   if (year) { year.textContent = new Date().getFullYear(); }
 
+  /* Visitor count — GoatCounter: no cookies, no personal data. Do Not Track is
+     honoured. The site code below must exist at goatcounter.com. */
+  var GC = "vidyadheeshp";
+  var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+  if (dnt !== "1" && dnt !== "yes") {
+    var gs = document.createElement("script");
+    gs.async = true;
+    gs.src = "https://gc.zgo.at/count.js";
+    gs.setAttribute("data-goatcounter", "https://" + GC + ".goatcounter.com/count");
+    document.head.appendChild(gs);
+  }
+  var visits = document.getElementById("visits");
+  if (visits && window.fetch) {
+    fetch("https://" + GC + ".goatcounter.com/counter/TOTAL.json")
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) {
+        if (d && d.count) { visits.textContent = d.count + " visits · "; }
+      })
+      .catch(function () {});
+  }
+
   var toggle = document.getElementById("theme");
   if (toggle) {
     toggle.addEventListener("click", function () {
